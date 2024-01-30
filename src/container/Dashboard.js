@@ -2,8 +2,9 @@ import { useState } from "react";
 import Posts from "./Posts";
 import NewPost from "./NewPost";
 
-export default function Dashboard() {
+import React from 'react'
 
+const Dashboard = () => {
     let i = 113;
     const [postsState, setPostsState] = useState(
         [
@@ -37,13 +38,17 @@ export default function Dashboard() {
 
     return (
         <div>
-            <Posts products={postsState} />
+            <Posts posts={postsState} />
             <NewPost
                 title={postState.title}
                 author={postsState.author}
+
                 onChange={(event) => { onChange(event) }}
                 addButtonClicked={addButtonClicked}
             />
         </div>
     )
 }
+
+export default Dashboard
+
