@@ -3,6 +3,7 @@ import Posts from "./Posts";
 import NewPost from "./NewPost";
 
 import React from 'react'
+import PostDetail from "./PostDetail";
 
 const Dashboard = () => {
     let i = 113;
@@ -21,6 +22,8 @@ const Dashboard = () => {
         }
     )
 
+    const [selectedPostState, setSelectedPostState] = useState({})
+
     const onChange = (events) => {
         const copy = { ...postsState };
         copy[events.target.title] = events.target.value;
@@ -38,7 +41,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            <Posts posts={postsState} />
+            <Posts posts={postsState} setSelectedPostState={setSelectedPostState} />
             <NewPost
                 title={postState.title}
                 author={postsState.author}
@@ -46,6 +49,7 @@ const Dashboard = () => {
                 onChange={(event) => { onChange(event) }}
                 addButtonClicked={addButtonClicked}
             />
+            <PostDetail selectedPost={selectedPostState} />
         </div>
     )
 }

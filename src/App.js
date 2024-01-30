@@ -5,7 +5,7 @@ import Posts from './container/Posts';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
         <h1> Posts </h1>
         <Dashboard />
     </div>
