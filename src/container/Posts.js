@@ -6,6 +6,7 @@ const Posts = (props) => {
             
             title={post.title}
             author={post.author}
+            content={post.content}
             id={post.id}
             setSelectedPostState={props.setSelectedPostState}
             key={post.id}

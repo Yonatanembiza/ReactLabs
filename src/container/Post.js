@@ -7,7 +7,7 @@ const Post = (props) => {
             author: props.author
         })
     }
-    
+
     return ( 
         <div style={{
             display: 'flex',
@@ -25,6 +25,9 @@ const Post = (props) => {
             <h1> {props.id}</h1>
             <div className="Field">
                 {props.title}
+            </div>
+            <div className="Field">
+                {props.content}
             </div>
             <div className="Field">
                 {props.author}

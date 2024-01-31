@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import Posts from "./Posts";
 import NewPost from "./NewPost";
 import React from 'react'
@@ -8,11 +8,18 @@ const Dashboard = () => {
     let i = 113;
     const [postsState, setPostsState] = useState(
         [
-            { id: 111, title: "Happiness", author: "john" },
-            { id: 112, title: "MIU", author: "dean" },
-            { id: 113, title: "Enjoy lfe", author: "Jasmine" }
+            { id: 111, title: "Happiness", author: "john", content:""},
+            { id: 112, title: "MIU", author: "dean", content:"" },
+            { id: 113, title: "Enjoy lfe", author: "Jasmine", content:"" }
         ]
     );
+
+    useEffect (()=>{
+        fetch("http://localhost:5010/api/v1/posts")
+        .then(result  => result.json())
+        .then(data =>  setPostsState(data))
+        
+    }, []);
 
     const [postState, setPostState] = useState(
         {
@@ -45,7 +52,7 @@ const Dashboard = () => {
                 title={postState.title}
                 author={postsState.author}
 
-                onChange={(event) => { onChange(event) }}
+                // onChange={(event) => { onChange(event) }}
                 addButtonClicked={addButtonClicked}
             />
             <PostDetail selectedPost={selectedPostState} />
