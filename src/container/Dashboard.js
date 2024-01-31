@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Posts from "./Posts";
 import NewPost from "./NewPost";
-
 import React from 'react'
 import PostDetail from "./PostDetail";
 
